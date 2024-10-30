@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div id="main">
+        <div id="heading">
+            <h1>Welcome to our Color <span id="changer"><br>Changer</span></h1>
+        </div>
+        <div class="container">
+            <div class="box" id="box1"></div>
+            <div class="box" id="box2"></div>
+            <div class="box" id="box3"></div>
+            <div class="box" id="box4"></div>
+        </div>
+    </div>
+    
+    <!-- JavaScript starts here -->
+    <script>
+        // Select all elements with class "box"
+        const boxes = document.querySelectorAll(".box");
+        // Select the body element
+        const body = document.querySelector("body");
+        // Select the element with id "changer" for color changing
+        const changer = document.getElementById("changer");
+
+        // Iterate over each box element to add click event listeners
+        boxes.forEach(function(box) {
+            box.addEventListener("click", function() {
+                // Reset styles of all boxes before applying to clicked box
+                boxes.forEach(function(b) {
+                    b.style.border = "none";  // Sab boxes ki border ko reset kar dete hain
+                });
+
+                // Switch statement to apply styles based on the clicked box ID
+                switch (box.id) {
+                    case "box1":
+                        // Box 1 click: background yellow, border, and text color settings
+                        body.style.backgroundColor = "yellow";
+                        box.style.border = "5px solid black";
+                        changer.style.color = "red";
+                        break;
+
+                    case "box2":
+                        // Box 2 click: background green, border, and text color settings
+                        body.style.backgroundColor = "green";
+                        box.style.border = "5px solid black";
+                        changer.style.color = "yellow";
+                        break;
+
+                    case "box3":
+                        // Box 3 click: background purple, border, and text color settings
+                        body.style.backgroundColor = "purple";
+                        box.style.border = "5px solid black";
+                        changer.style.color = "red";
+                        break;
+
+                    case "box4":
+                        // Box 4 click: background red, border, and text color settings
+                        body.style.backgroundColor = "red";
+                        box.style.border = "5px solid black";
+                        changer.style.color = "purple";
+                        break;
+
+                    default:
+                        // Default case to reset background color if no box matches
+                        body.style.backgroundColor = "white";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
